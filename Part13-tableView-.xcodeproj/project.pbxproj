@@ -15,6 +15,8 @@
 		5F037C6325A8785100C5F667 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F037C6125A8785100C5F667 /* LaunchScreen.storyboard */; };
 		5F037C6E25A8785200C5F667 /* Part13_tableView_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F037C6D25A8785200C5F667 /* Part13_tableView_Tests.swift */; };
 		5F037C7925A8785200C5F667 /* Part13_tableView_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F037C7825A8785200C5F667 /* Part13_tableView_UITests.swift */; };
+		5F037C8B25A9EE9100C5F667 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F037C8925A9EE9100C5F667 /* TableViewCell.swift */; };
+		5F037C8C25A9EE9100C5F667 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F037C8A25A9EE9100C5F667 /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		5F037C7425A8785200C5F667 /* Part13-tableView-UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Part13-tableView-UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F037C7825A8785200C5F667 /* Part13_tableView_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part13_tableView_UITests.swift; sourceTree = "<group>"; };
 		5F037C7A25A8785200C5F667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F037C8925A9EE9100C5F667 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		5F037C8A25A9EE9100C5F667 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				5F037C5F25A8785100C5F667 /* Assets.xcassets */,
 				5F037C6125A8785100C5F667 /* LaunchScreen.storyboard */,
 				5F037C6425A8785100C5F667 /* Info.plist */,
+				5F037C8925A9EE9100C5F667 /* TableViewCell.swift */,
+				5F037C8A25A9EE9100C5F667 /* TableViewCell.xib */,
 			);
 			path = "Part13-tableView-";
 			sourceTree = "<group>";
@@ -232,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F037C6325A8785100C5F667 /* LaunchScreen.storyboard in Resources */,
+				5F037C8C25A9EE9100C5F667 /* TableViewCell.xib in Resources */,
 				5F037C6025A8785100C5F667 /* Assets.xcassets in Resources */,
 				5F037C5E25A8784D00C5F667 /* Main.storyboard in Resources */,
 			);
@@ -259,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F037C5B25A8784D00C5F667 /* ViewController.swift in Sources */,
+				5F037C8B25A9EE9100C5F667 /* TableViewCell.swift in Sources */,
 				5F037C5725A8784D00C5F667 /* AppDelegate.swift in Sources */,
 				5F037C5925A8784D00C5F667 /* SceneDelegate.swift in Sources */,
 			);
