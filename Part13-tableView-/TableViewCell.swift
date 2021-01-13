@@ -17,17 +17,9 @@ final class TableViewCell: UITableViewCell {
         return UINib(nibName: reuseIdentifier, bundle: nil)
     }
 
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        nameLabel.text = ""
-        checkView.image = nil
-    }
-
-    func configure(name: String, check: Bool) {
-        nameLabel.text = name
-        if check {
-            checkView.image = UIImage(named: "check")
-        }
+    func configure(fruit: Fruit) {
+        nameLabel.text = fruit.name
+        checkView.image = fruit.isChecked ? UIImage(named: "check") : nil
     }
 }
 

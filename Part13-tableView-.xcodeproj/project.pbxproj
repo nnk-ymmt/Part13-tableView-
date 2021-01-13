@@ -19,6 +19,7 @@
 		5F037C8C25A9EE9100C5F667 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F037C8A25A9EE9100C5F667 /* TableViewCell.xib */; };
 		5FDFD9FA25ADDC64002B9623 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDFD9F925ADDC64002B9623 /* InputViewController.swift */; };
 		5FDFD9FF25ADDC82002B9623 /* Input.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FDFD9FE25ADDC82002B9623 /* Input.storyboard */; };
+		E5DFCC3725ADE9CD00D916B4 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFCC3625ADE9CD00D916B4 /* Fruit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		5F037C8A25A9EE9100C5F667 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		5FDFD9F925ADDC64002B9623 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		5FDFD9FE25ADDC82002B9623 /* Input.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Input.storyboard; sourceTree = "<group>"; };
+		E5DFCC3625ADE9CD00D916B4 /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				5F037C5625A8784D00C5F667 /* AppDelegate.swift */,
 				5F037C5825A8784D00C5F667 /* SceneDelegate.swift */,
 				5F037C5A25A8784D00C5F667 /* ViewController.swift */,
+				E5DFCC3625ADE9CD00D916B4 /* Fruit.swift */,
 				5FDFD9F925ADDC64002B9623 /* InputViewController.swift */,
 				5FDFD9FE25ADDC82002B9623 /* Input.storyboard */,
 				5F037C5C25A8784D00C5F667 /* Main.storyboard */,
@@ -272,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5DFCC3725ADE9CD00D916B4 /* Fruit.swift in Sources */,
 				5F037C5B25A8784D00C5F667 /* ViewController.swift in Sources */,
 				5FDFD9FA25ADDC64002B9623 /* InputViewController.swift in Sources */,
 				5F037C8B25A9EE9100C5F667 /* TableViewCell.swift in Sources */,
