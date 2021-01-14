@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Input View Controller-->
         <scene sceneID="hUP-AI-sEY">
             <objects>
-                <viewController id="mKr-X2-3cv" sceneMemberID="viewController">
+                <viewController id="mKr-X2-3cv" customClass="InputViewController" customModule="Part13_tableView_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U9Q-er-ddl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,11 +34,23 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="gld-Bp-7vU">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="VNu-i3-Wsa"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="ABY-e6-AUf"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="VNu-i3-Wsa">
+                            <connections>
+                                <segue destination="af0-HS-HyM" kind="unwind" unwindAction="cancelWithSegue:" id="8IW-Y4-0sf"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="ABY-e6-AUf">
+                            <connections>
+                                <segue destination="af0-HS-HyM" kind="unwind" unwindAction="saveWithSegue:" id="8Wc-2J-4zN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="fa6-pa-1ZT" id="feI-aX-Rwf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wYw-vz-gKL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="af0-HS-HyM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="728.98550724637687" y="123.88392857142857"/>
         </scene>
