@@ -23,6 +23,16 @@ final class ViewController: UIViewController {
         tableView.rowHeight = 50
         tableView.isHidden = false
     }
+
+    @IBAction func cancel(segue: UIStoryboardSegue) { }
+
+    @IBAction func save(segue: UIStoryboardSegue) {
+        guard let inputVC = segue.source as? InputViewController,
+              let text = inputVC.textField.text else {
+            return
+        }
+        print(text)
+    }
 }
 
 extension ViewController: UITableViewDataSource {

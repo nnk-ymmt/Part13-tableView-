@@ -33,7 +33,13 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="t8c-f7-lO5" secondAttribute="trailing" id="qIr-Hp-qce"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="TBd-yQ-ljZ"/>
+                    <navigationItem key="navigationItem" id="TBd-yQ-ljZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Jcm-7b-mHZ">
+                            <connections>
+                                <segue destination="NQR-hc-o4W" kind="show" id="cXA-p2-gBI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="t8c-f7-lO5" id="TbE-w4-PvF"/>
                     </connections>
@@ -41,6 +47,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="75.669642857142847"/>
+        </scene>
+        <!--Input-->
+        <scene sceneID="u8S-KA-44d">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Input" id="NQR-hc-o4W" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Z7I-mf-rfU"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uW7-4T-QBY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1513" y="-25"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YKm-zf-Mh1">
