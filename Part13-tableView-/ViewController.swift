@@ -17,6 +17,7 @@ final class ViewController: UIViewController {
     }
 
     let fruits: [Fruit] = [Fruit.apple, Fruit.orange, Fruit.banana, Fruit.pineapple]
+    var fruitsData: [String] = ["りんご", "みかん", "バナナ", "パイナップル"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
