@@ -17,9 +17,14 @@ final class TableViewCell: UITableViewCell {
         return UINib(nibName: reuseIdentifier, bundle: nil)
     }
 
-    func configure(fruit: Fruit) {
-        nameLabel.text = fruit.name
-        checkView.image = fruit.isChecked ? UIImage(named: "check") : nil
+//    func configure(fruit: Fruit) {
+//        nameLabel.text = fruit.name
+//        checkView.image = fruit.isChecked ? UIImage(named: "check") : nil
+//    }
+
+    func configure(fruit: String, index: Int) {
+        nameLabel.text = fruit
+        checkView.image = index % 2 == 0 ? UIImage(named: "check") : nil
     }
 }
 
