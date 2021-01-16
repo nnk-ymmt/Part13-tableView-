@@ -29,23 +29,26 @@ final class ViewController: UIViewController {
 
     @IBAction func save(segue: UIStoryboardSegue) {
         guard let inputVC = segue.source as? InputViewController,
-              let text = inputVC.textField.text else {
+              let newFruit = inputVC.textField.text else {
             return
         }
-        print(text)
+        fruitsData.append(newFruit)
+        tableView.reloadData()
     }
 }
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        fruits.count
+//        fruits.count
+        fruitsData.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.reuseIdentifier, for: indexPath) as? TableViewCell else {
             return UITableViewCell()
         }
-        cell.configure(fruit: fruits[indexPath.item])
+//        cell.configure(fruit: fruits[indexPath.row])
+        cell.configure(fruit: fruitsData[indexPath.row], index: indexPath.row)
         return cell
     }
 }
