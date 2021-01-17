@@ -41,12 +41,13 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="ABY-e6-AUf">
                             <connections>
-                                <segue destination="af0-HS-HyM" kind="unwind" unwindAction="saveWithSegue:" id="8Wc-2J-4zN"/>
+                                <action selector="saveAction:" destination="mKr-X2-3cv" id="D9N-JV-xyf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="textField" destination="fa6-pa-1ZT" id="feI-aX-Rwf"/>
+                        <segue destination="af0-HS-HyM" kind="unwind" identifier="save" unwindAction="saveWithSegue:" id="4kq-ih-exm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wYw-vz-gKL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
