@@ -9,10 +9,12 @@ import UIKit
 
 final class InputViewController: UIViewController {
 
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet private weak var textField: UITextField!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var fruit: Fruit?
 
+    @IBAction private func saveAction(_ sender: Any) {
+        fruit = Fruit(name: textField.text ?? "", isChecked: false)
+        performSegue(withIdentifier: "save", sender: sender)
     }
 }
