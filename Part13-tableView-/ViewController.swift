@@ -16,8 +16,14 @@ final class ViewController: UIViewController {
         }
     }
 
-    let fruits: [Fruit] = [Fruit.apple, Fruit.orange, Fruit.banana, Fruit.pineapple]
-    var fruitsData: [String] = ["りんご", "みかん", "バナナ", "パイナップル"]
+//    let fruits: [Fruit] = [Fruit.apple, Fruit.orange, Fruit.banana, Fruit.pineapple]
+//    var fruitsData: [String] = ["りんご", "みかん", "バナナ", "パイナップル"]
+    private var fruitsData: [Fruit] = [
+        Fruit(name:"りんご", isChecked: false),
+        Fruit(name:"みかん", isChecked: true),
+        Fruit(name:"バナナ", isChecked: false),
+        Fruit(name:"パイナップル", isChecked: true)
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +35,7 @@ final class ViewController: UIViewController {
 
     @IBAction func save(segue: UIStoryboardSegue) {
         guard let inputVC = segue.source as? InputViewController,
-              let newFruit = inputVC.textField.text else {
+              let newFruit = inputVC.fruit else {
             return
         }
         fruitsData.append(newFruit)
@@ -48,7 +54,7 @@ extension ViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 //        cell.configure(fruit: fruits[indexPath.row])
-        cell.configure(fruit: fruitsData[indexPath.row], index: indexPath.row)
+        cell.configure(fruit: fruitsData[indexPath.row])
         return cell
     }
 }
