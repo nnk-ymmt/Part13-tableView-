@@ -11,7 +11,7 @@ final class InputViewController: UIViewController {
 
     @IBOutlet private weak var textField: UITextField!
 
-    var fruit: Fruit?
+    private(set) var fruit: Fruit?
 
     @IBAction private func saveAction(_ sender: Any) {
         fruit = Fruit(name: textField.text ?? "", isChecked: false)
