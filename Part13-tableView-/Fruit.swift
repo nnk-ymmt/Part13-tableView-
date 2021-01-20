@@ -34,5 +34,5 @@ import Foundation
 
 struct Fruit {
     let name: String
-    let isChecked: Bool
+    var isChecked: Bool
 }
