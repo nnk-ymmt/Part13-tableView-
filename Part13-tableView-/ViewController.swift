@@ -61,7 +61,7 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        fruitsData[indexPath.row] = Fruit.init(name: fruitsData[indexPath.row].name, isChecked: !fruitsData[indexPath.row].isChecked)
+        fruitsData[indexPath.row].isChecked.toggle()
         tableView.reloadData()
     }
 }
