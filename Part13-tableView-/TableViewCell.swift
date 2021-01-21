@@ -13,8 +13,10 @@ final class TableViewCell: UITableViewCell {
     @IBOutlet private weak var nameLabel: UILabel!
     
     static let reuseIdentifier = "TableViewCell"
+    static let nibName = "TableViewCell"
+    
     static func loadNib() -> UINib {
-        return UINib(nibName: reuseIdentifier, bundle: nil)
+        return UINib(nibName: nibName, bundle: nil)
     }
 
 //    func configure(fruit: Fruit) {
