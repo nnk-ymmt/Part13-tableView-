@@ -65,3 +65,10 @@ extension ViewController: UITableViewDelegate {
         tableView.reloadData()
     }
 }
+
+
+
+// 解答例
+
+// 複数行をリロードするので配列を渡す
+//tableView.reloadRows(at: [indexPath], with: .automatic)
