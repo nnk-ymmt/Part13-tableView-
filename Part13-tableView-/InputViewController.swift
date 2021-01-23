@@ -9,9 +9,23 @@ import UIKit
 
 final class InputViewController: UIViewController {
 
-    @IBOutlet private weak var textField: UITextField!
+    enum Mode {
+        case input
+        case edit
+    }
 
+    @IBOutlet weak var textField: UITextField!
+
+    var mode: Mode?
+    var editName: Fruit?
     private(set) var fruit: Fruit?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if let editName = editName {
+            textField.text = editName.name
+        }
+    }
 
     @IBAction private func saveAction(_ sender: Any) {
         fruit = Fruit(name: textField.text ?? "", isChecked: false)
