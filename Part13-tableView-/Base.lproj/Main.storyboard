@@ -43,6 +43,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="t8c-f7-lO5" id="TbE-w4-PvF"/>
+                        <segue destination="kt9-Qb-lgm" kind="presentation" identifier="edit" id="GPZ-o3-oFj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -58,6 +59,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uW7-4T-QBY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1513" y="-25"/>
+        </scene>
+        <!--Input-->
+        <scene sceneID="gcA-7I-c5b">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Input" id="kt9-Qb-lgm" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ssG-SC-DmM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1507" y="86"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YKm-zf-Mh1">
