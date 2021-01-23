@@ -41,6 +41,24 @@ final class ViewController: UIViewController {
         fruitsData.append(newFruit)
         tableView.reloadData()
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let nextVC = (segue.destination as? UINavigationController)?.topViewController as? InputViewController {
+            switch segue.identifier ?? "" {
+            case "input":
+                nextVC.mode = InputViewController.Mode.input
+            case "edit":
+                nextVC.mode = InputViewController.Mode.edit
+                if let indexPath = sender as? IndexPath {
+                    let editItem = fruitsData[indexPath.row]
+                    nextVC.editName = editItem
+                    
+                }
+            default:
+                break
+            }
+        }
+    }
 }
 
 extension ViewController: UITableViewDataSource {
@@ -53,6 +71,7 @@ extension ViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.reuseIdentifier, for: indexPath) as? TableViewCell else {
             return UITableViewCell()
         }
+        cell.accessoryType = UITableViewCell.AccessoryType.detailButton
 //        cell.configure(fruit: fruits[indexPath.row])
         cell.configure(fruit: fruitsData[indexPath.row])
         return cell
@@ -63,6 +82,10 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         fruitsData[indexPath.row].isChecked.toggle()
         tableView.reloadData()
+    }
+
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        performSegue(withIdentifier: "edit", sender: indexPath)
     }
 }
 
