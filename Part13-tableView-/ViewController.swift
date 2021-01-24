@@ -41,9 +41,7 @@ final class ViewController: UIViewController {
             return
         }
         fruitsData.append(newFruit)
-//        tableView.reloadData()
-        let indexPath = IndexPath.init(row: fruitsData.count - 1, section: 0)
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        tableView.reloadData()
     }
 
     @IBAction func edit(segue: UIStoryboardSegue) {
