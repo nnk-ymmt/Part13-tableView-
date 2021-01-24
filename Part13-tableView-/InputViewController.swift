@@ -14,21 +14,24 @@ final class InputViewController: UIViewController {
         case edit
     }
 
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet private weak var textField: UITextField!
 
     var mode: Mode?
-    var editName: Fruit?
+    var editItem: Fruit?
     private(set) var fruit: Fruit?
+    var fruitIndex: IndexPath?
+    var check: Bool?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let editName = editName {
-            textField.text = editName.name
+        if let editItem = editItem {
+            textField.text = editItem.name
         }
     }
 
     @IBAction private func saveAction(_ sender: Any) {
-        fruit = Fruit(name: textField.text ?? "", isChecked: false)
-        performSegue(withIdentifier: "save", sender: sender)
+        fruit = Fruit(name: textField.text ?? "", isChecked: check ?? false)
+        let identifier = mode == Mode.edit ? "edit" : "save"
+        performSegue(withIdentifier: identifier, sender: sender)
     }
 }

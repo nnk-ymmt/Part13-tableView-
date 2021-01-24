@@ -48,6 +48,7 @@
                     <connections>
                         <outlet property="textField" destination="fa6-pa-1ZT" id="feI-aX-Rwf"/>
                         <segue destination="af0-HS-HyM" kind="unwind" identifier="save" unwindAction="saveWithSegue:" id="4kq-ih-exm"/>
+                        <segue destination="af0-HS-HyM" kind="unwind" identifier="edit" unwindAction="editWithSegue:" id="3oF-Xb-xh5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wYw-vz-gKL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

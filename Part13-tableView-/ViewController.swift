@@ -24,6 +24,8 @@ final class ViewController: UIViewController {
         Fruit(name:"バナナ", isChecked: false),
         Fruit(name:"パイナップル", isChecked: true)
     ]
+    var editIndex: IndexPath?
+    var check: Bool?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +41,20 @@ final class ViewController: UIViewController {
             return
         }
         fruitsData.append(newFruit)
-        tableView.reloadData()
+//        tableView.reloadData()
+        let indexPath = IndexPath.init(row: fruitsData.count - 1, section: 0)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+
+    @IBAction func edit(segue: UIStoryboardSegue) {
+        guard let inputVC = segue.source as? InputViewController,
+              let indexPath = inputVC.fruitIndex,
+              let fruit = inputVC.fruit else {
+            return
+        }
+        fruitsData[indexPath.row] = fruit
+//        tableView.reloadData()
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -51,8 +66,9 @@ final class ViewController: UIViewController {
                 nextVC.mode = InputViewController.Mode.edit
                 if let indexPath = sender as? IndexPath {
                     let editItem = fruitsData[indexPath.row]
-                    nextVC.editName = editItem
-                    
+                    nextVC.editItem = editItem
+                    nextVC.fruitIndex = editIndex
+                    nextVC.check = check
                 }
             default:
                 break
@@ -85,6 +101,8 @@ extension ViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        editIndex = indexPath
+        check = fruitsData[indexPath.row].isChecked
         performSegue(withIdentifier: "edit", sender: indexPath)
     }
 }
