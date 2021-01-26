@@ -17,20 +17,18 @@ final class InputViewController: UIViewController {
     @IBOutlet private weak var textField: UITextField!
 
     var mode: Mode?
-    var editItem: Fruit?
-    private(set) var fruit: Fruit?
+    var fruit: Fruit?
     var fruitIndex: IndexPath?
-    var check: Bool?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let editItem = editItem {
-            textField.text = editItem.name
+        if let fruit = fruit {
+            textField.text = fruit.name
         }
     }
 
     @IBAction private func saveAction(_ sender: Any) {
-        fruit = Fruit(name: textField.text ?? "", isChecked: check ?? false)
+        fruit = Fruit(name: textField.text ?? "", isChecked: fruit?.isChecked ?? false)
         let identifier = mode == Mode.edit ? "edit" : "save"
         performSegue(withIdentifier: identifier, sender: sender)
     }

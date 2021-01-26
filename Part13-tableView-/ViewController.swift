@@ -24,8 +24,7 @@ final class ViewController: UIViewController {
         Fruit(name:"バナナ", isChecked: false),
         Fruit(name:"パイナップル", isChecked: true)
     ]
-    var editIndex: IndexPath?
-    var check: Bool?
+    private(set) var editIndex: IndexPath?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,9 +63,8 @@ final class ViewController: UIViewController {
                 nextVC.mode = InputViewController.Mode.edit
                 if let indexPath = sender as? IndexPath {
                     let editItem = fruitsData[indexPath.row]
-                    nextVC.editItem = editItem
+                    nextVC.fruit = editItem
                     nextVC.fruitIndex = editIndex
-                    nextVC.check = check
                 }
             default:
                 break
@@ -100,7 +98,6 @@ extension ViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         editIndex = indexPath
-        check = fruitsData[indexPath.row].isChecked
         performSegue(withIdentifier: "edit", sender: indexPath)
     }
 }
