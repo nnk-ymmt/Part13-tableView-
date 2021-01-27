@@ -49,9 +49,7 @@ final class ViewController: UIViewController {
               let fruit = inputVC.fruit else {
             return
         }
-        fruitsData[indexPath.row] = fruit
-//        tableView.reloadData()
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        fruitsData[editIndexPath.row] = fruit
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

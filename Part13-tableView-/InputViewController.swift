@@ -11,14 +11,13 @@ final class InputViewController: UIViewController {
 
     enum Mode {
         case input
-        case edit
+        case edit(Fruit)
     }
 
     @IBOutlet private weak var textField: UITextField!
 
     var mode: Mode?
-    var fruit: Fruit?
-    var fruitIndex: IndexPath?
+    private(set) var output: Fruit?
 
     override func viewDidLoad() {
         super.viewDidLoad()
