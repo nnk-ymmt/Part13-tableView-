@@ -95,6 +95,12 @@ extension ViewController: UITableViewDelegate {
         editIndexPath = indexPath
         performSegue(withIdentifier: "edit", sender: nil)
     }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        fruitsData.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
 }
 
 
