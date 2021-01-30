@@ -33,6 +33,6 @@ import Foundation
 //}
 
 struct Fruit {
-    let name: String
+    var name: String
     var isChecked: Bool
 }

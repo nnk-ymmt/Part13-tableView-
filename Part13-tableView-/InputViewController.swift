@@ -47,7 +47,16 @@ final class InputViewController: UIViewController {
             }
         }()
 
-        output = Fruit(name: textField.text ?? "", isChecked: isChecked)
+        let name: String = {
+            switch mode {
+            case .input:
+                return textField.text ?? ""
+            case let .edit(fruit):
+                return fruit.name
+            }
+        }()
+
+        output = Fruit(name: name, isChecked: isChecked)
 
         performSegue(
             withIdentifier: {
