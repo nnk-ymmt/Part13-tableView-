@@ -32,7 +32,7 @@ import Foundation
 //    }
 //}
 
-struct Fruit {
+struct Fruit: Codable {
     var name: String
     var isChecked: Bool
 }

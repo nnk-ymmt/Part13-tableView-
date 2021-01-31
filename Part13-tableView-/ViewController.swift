@@ -16,6 +16,7 @@ final class ViewController: UIViewController {
         }
     }
 
+    private let saveKey = "fruitsData"
 //    let fruits: [Fruit] = [Fruit.apple, Fruit.orange, Fruit.banana, Fruit.pineapple]
 //    var fruitsData: [String] = ["りんご", "みかん", "バナナ", "パイナップル"]
     private var fruitsData: [Fruit] = [
@@ -30,6 +31,7 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         tableView.rowHeight = 50
         tableView.isHidden = false
+        loadItems()
     }
 
     @IBAction func cancel(segue: UIStoryboardSegue) { }
@@ -41,6 +43,7 @@ final class ViewController: UIViewController {
         }
         fruitsData.append(newFruit)
         tableView.reloadData()
+        saveItems()
     }
 
     @IBAction func edit(segue: UIStoryboardSegue) {
@@ -51,6 +54,7 @@ final class ViewController: UIViewController {
         }
         fruitsData[editIndexPath.row] = fruit
         tableView.reloadRows(at: [editIndexPath], with: .automatic)
+        saveItems()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -89,6 +93,7 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         fruitsData[indexPath.row].isChecked.toggle()
         tableView.reloadData()
+        saveItems()
     }
 
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
@@ -100,6 +105,20 @@ extension ViewController: UITableViewDelegate {
         guard editingStyle == .delete else { return }
         fruitsData.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
+        saveItems()
+    }
+}
+
+extension ViewController {
+    private func saveItems() {
+        let items = fruitsData.map { try! JSONEncoder().encode($0) }
+        UserDefaults.standard.set(items as [Any], forKey: saveKey)
+    }
+
+    private func loadItems() {
+        guard let items = UserDefaults.standard.object(forKey: saveKey) as? [Data] else { return }
+        let decodedItems = items.map { try! JSONDecoder().decode(Fruit.self, from: $0) }
+        fruitsData = decodedItems
     }
 }
 
