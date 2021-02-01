@@ -122,6 +122,13 @@ extension ViewController {
     }
 }
 
+class FruitsUseCase {
+    
+}
+
+class FruitsRepository {
+    
+}
 
 
 // 解答例
