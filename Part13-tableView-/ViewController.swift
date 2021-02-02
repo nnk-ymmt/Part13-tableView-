@@ -16,22 +16,23 @@ final class ViewController: UIViewController {
         }
     }
 
-    private let saveKey = "fruitsData"
+//    private let saveKey = "fruitsData"
 //    let fruits: [Fruit] = [Fruit.apple, Fruit.orange, Fruit.banana, Fruit.pineapple]
 //    var fruitsData: [String] = ["りんご", "みかん", "バナナ", "パイナップル"]
-    private var fruitsData: [Fruit] = [
-        Fruit(name:"りんご", isChecked: false),
-        Fruit(name:"みかん", isChecked: true),
-        Fruit(name:"バナナ", isChecked: false),
-        Fruit(name:"パイナップル", isChecked: true)
-    ]
+//    private var fruitsData: [Fruit] = [
+//        Fruit(name:"りんご", isChecked: false),
+//        Fruit(name:"みかん", isChecked: true),
+//        Fruit(name:"バナナ", isChecked: false),
+//        Fruit(name:"パイナップル", isChecked: true)
+//    ]
     private(set) var editIndexPath: IndexPath?
+    private let useCase = FruitsUseCase()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 50
         tableView.isHidden = false
-        loadItems()
+//        loadItems()
     }
 
     @IBAction func cancel(segue: UIStoryboardSegue) { }
@@ -41,9 +42,10 @@ final class ViewController: UIViewController {
               let newFruit = inputVC.output else {
             return
         }
-        fruitsData.append(newFruit)
+//        fruitsData.append(newFruit)
+        useCase.append(fruit: newFruit)
         tableView.reloadData()
-        saveItems()
+//        saveItems()
     }
 
     @IBAction func edit(segue: UIStoryboardSegue) {
@@ -52,9 +54,10 @@ final class ViewController: UIViewController {
               let editIndexPath = editIndexPath else {
             return
         }
-        fruitsData[editIndexPath.row] = fruit
+//        fruitsData[editIndexPath.row] = fruit
+        useCase.replace(index: editIndexPath.row, fruit: fruit)
         tableView.reloadRows(at: [editIndexPath], with: .automatic)
-        saveItems()
+//        saveItems()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -64,7 +67,8 @@ final class ViewController: UIViewController {
                 nextVC.mode = .input
             case "edit":
                 guard let editIndexPath = editIndexPath else { return }
-                nextVC.mode = .edit(fruitsData[editIndexPath.row])
+//                nextVC.mode = .edit(fruitsData[editIndexPath.row])
+                nextVC.mode = .edit(useCase.fruits[editIndexPath.row])
             default:
                 break
             }
@@ -75,7 +79,8 @@ final class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        fruits.count
-        fruitsData.count
+//        fruitsData.count
+        useCase.fruits.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,16 +89,18 @@ extension ViewController: UITableViewDataSource {
         }
         cell.accessoryType = UITableViewCell.AccessoryType.detailButton
 //        cell.configure(fruit: fruits[indexPath.row])
-        cell.configure(fruit: fruitsData[indexPath.row])
+//        cell.configure(fruit: fruitsData[indexPath.row])
+        cell.configure(fruit: useCase.fruits[indexPath.row])
         return cell
     }
 }
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        fruitsData[indexPath.row].isChecked.toggle()
+//        fruitsData[indexPath.row].isChecked.toggle()
+        useCase.toggleCheck(index: indexPath.row)
         tableView.reloadData()
-        saveItems()
+//        saveItems()
     }
 
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
@@ -103,31 +110,75 @@ extension ViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
-        fruitsData.remove(at: indexPath.row)
+//        fruitsData.remove(at: indexPath.row)
+        useCase.remove(index: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
-        saveItems()
+//        saveItems()
     }
 }
 
-extension ViewController {
-    private func saveItems() {
-        let items = fruitsData.map { try! JSONEncoder().encode($0) }
-        UserDefaults.standard.set(items as [Any], forKey: saveKey)
-    }
-
-    private func loadItems() {
-        guard let items = UserDefaults.standard.object(forKey: saveKey) as? [Data] else { return }
-        let decodedItems = items.map { try! JSONDecoder().decode(Fruit.self, from: $0) }
-        fruitsData = decodedItems
-    }
-}
+//extension ViewController {
+//    private func saveItems() {
+//        let items = fruitsData.map { try! JSONEncoder().encode($0) }
+//        UserDefaults.standard.set(items as [Any], forKey: saveKey)
+//    }
+//
+//    private func loadItems() {
+//        guard let items = UserDefaults.standard.object(forKey: saveKey) as? [Data] else { return }
+//        let decodedItems = items.map { try! JSONDecoder().decode(Fruit.self, from: $0) }
+//        fruitsData = decodedItems
+//    }
+//}
 
 class FruitsUseCase {
-    
+    private(set) var fruits: [Fruit]
+
+    private static let initialFruits: [Fruit] = [
+        Fruit(name:"りんご", isChecked: false),
+        Fruit(name:"みかん", isChecked: true),
+        Fruit(name:"バナナ", isChecked: false),
+        Fruit(name:"パイナップル", isChecked: true)
+    ]
+
+    private let repository = FruitsRepository()
+
+    init() {
+        fruits = repository.load() ?? Self.initialFruits
+    }
+
+    func append(fruit: Fruit) {
+        fruits.append(fruit)
+        repository.save(fruits: fruits)
+    }
+
+    func replace(index: Int, fruit: Fruit) {
+        fruits[index] = fruit
+        repository.save(fruits: fruits)
+    }
+
+    func toggleCheck(index: Int) {
+        fruits[index].isChecked.toggle()
+        repository.save(fruits: fruits)
+    }
+
+    func remove(index: Int) {
+        fruits.remove(at: index)
+        repository.save(fruits: fruits)
+    }
 }
 
 class FruitsRepository {
-    
+    private let key = "fruitsData"
+
+    func save(fruits: [Fruit]) {
+        let items = fruits.map { try! JSONEncoder().encode($0) }
+        UserDefaults.standard.set(items as [Any], forKey: key)
+    }
+
+    func load() -> [Fruit]? {
+        guard let items = UserDefaults.standard.object(forKey: key) as? [Data] else { return nil }
+        return items.map { try! JSONDecoder().decode(Fruit.self, from: $0) }
+    }
 }
 
 
