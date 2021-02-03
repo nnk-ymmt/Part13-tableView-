@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 //enum Fruit {
 //    case apple
@@ -32,7 +33,12 @@ import Foundation
 //    }
 //}
 
-struct Fruit: Codable {
-    var name: String
-    var isChecked: Bool
+//struct Fruit: Codable {
+//    var name: String
+//    var isChecked: Bool
+//}
+
+class Fruit: NSManagedObject {
+    @NSManaged var name: String
+    @NSManaged var isChecked: Bool
 }
