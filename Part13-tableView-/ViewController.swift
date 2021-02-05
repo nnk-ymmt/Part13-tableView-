@@ -135,10 +135,10 @@ class FruitsUseCase {
     private(set) var fruits: [Fruit]
 
     private static let initialFruits: [Fruit] = [
-        Fruit(name:"りんご", isChecked: false),
-        Fruit(name:"みかん", isChecked: true),
-        Fruit(name:"バナナ", isChecked: false),
-        Fruit(name:"パイナップル", isChecked: true)
+//        Fruit(name:"りんご", isChecked: false),
+//        Fruit(name:"みかん", isChecked: true),
+//        Fruit(name:"バナナ", isChecked: false),
+//        Fruit(name:"パイナップル", isChecked: true)
     ]
 
     private let repository = FruitsRepository()
