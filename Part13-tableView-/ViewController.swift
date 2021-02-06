@@ -39,13 +39,16 @@ final class ViewController: UIViewController {
     @IBAction func cancel(segue: UIStoryboardSegue) { }
 
     @IBAction func save(segue: UIStoryboardSegue) {
+        
         guard let inputVC = segue.source as? InputViewController,
               let newFruit = inputVC.output else {
+            print("きた")
             return
         }
 //        fruitsData.append(newFruit)
         useCase.append(fruit: newFruit)
         tableView.reloadData()
+        
 //        saveItems()
     }
 
@@ -172,13 +175,26 @@ class FruitsRepository {
     private let key = "fruitsData"
 
     func save(fruits: [Fruit]) {
-        let items = fruits.map { try! JSONEncoder().encode($0) }
-        UserDefaults.standard.set(items as [Any], forKey: key)
+//        let items = fruits.map { try! JSONEncoder().encode($0) }
+//        UserDefaults.standard.set(items as [Any], forKey: key)
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
     func load() -> [Fruit]? {
-        guard let items = UserDefaults.standard.object(forKey: key) as? [Data] else { return nil }
-        return items.map { try! JSONDecoder().decode(Fruit.self, from: $0) }
+//        guard let items = UserDefaults.standard.object(forKey: key) as? [Data] else { return nil }
+//        return items.map { try! JSONDecoder().decode(Fruit.self, from: $0) }
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: key)
+        do {
+            guard let context = managedObjectContext else { return nil }
+            return try context.fetch(fetchRequest) as? [Fruit]
+        } catch {
+            print("エラー")
+            return nil
+        }
+    }
+
+    var managedObjectContext: NSManagedObjectContext? {
+        (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     }
 }
 
