@@ -152,7 +152,8 @@ class FruitsUseCase {
 
     func append(fruit: Fruit) {
         fruits.append(fruit)
-        repository.save(fruits: fruits)
+//        repository.save(fruits: fruits)
+        repository.save()
     }
 
     func replace(index: Int, fruit: Fruit) {
