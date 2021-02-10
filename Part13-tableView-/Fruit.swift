@@ -37,8 +37,3 @@ import CoreData
 //    var name: String
 //    var isChecked: Bool
 //}
-
-class Fruit: NSManagedObject {
-    @NSManaged var name: String
-    @NSManaged var isChecked: Bool
-}
