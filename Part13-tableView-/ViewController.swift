@@ -174,9 +174,12 @@ class FruitsUseCase {
 class FruitsRepository {
     private let key = "fruitsData"
 
-    func save(fruits: [Fruit]) {
+//    func save(fruits: [Fruit]) {
 //        let items = fruits.map { try! JSONEncoder().encode($0) }
 //        UserDefaults.standard.set(items as [Any], forKey: key)
+//    }
+
+    func save() {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
