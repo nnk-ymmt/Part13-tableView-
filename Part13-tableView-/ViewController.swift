@@ -39,16 +39,13 @@ final class ViewController: UIViewController {
     @IBAction func cancel(segue: UIStoryboardSegue) { }
 
     @IBAction func save(segue: UIStoryboardSegue) {
-        
         guard let inputVC = segue.source as? InputViewController,
               let newFruit = inputVC.output else {
-            print("きた")
             return
         }
 //        fruitsData.append(newFruit)
         useCase.append(fruit: newFruit)
         tableView.reloadData()
-        
 //        saveItems()
     }
 
@@ -163,7 +160,8 @@ class FruitsUseCase {
 
     func toggleCheck(index: Int) {
         fruits[index].isChecked.toggle()
-        repository.save(fruits: fruits)
+//        repository.save(fruits: fruits)
+        repository.save()
     }
 
     func remove(index: Int) {
