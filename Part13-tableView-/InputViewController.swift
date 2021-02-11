@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 final class InputViewController: UIViewController {
 
@@ -47,7 +48,15 @@ final class InputViewController: UIViewController {
             }
         }()
 
-        output = Fruit(name: textField.text ?? "", isChecked: isChecked)
+//        output = Fruit(name: textField.text ?? "", isChecked: isChecked)
+        guard let context = FruitsRepository.managedObjectContext,
+           let newFruit = NSEntityDescription.insertNewObject(forEntityName: FruitsRepository.key, into: context) as? Fruit else {
+            print("エラー")
+            return
+        }
+        newFruit.name = textField.text ?? ""
+        newFruit.isChecked = isChecked
+        output = newFruit
 
         performSegue(
             withIdentifier: {
