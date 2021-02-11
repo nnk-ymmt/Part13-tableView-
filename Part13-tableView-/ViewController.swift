@@ -172,7 +172,10 @@ class FruitsUseCase {
 }
 
 class FruitsRepository {
-    private let key = "fruitsData"
+    static let key = "Fruit"
+    static var managedObjectContext: NSManagedObjectContext? {
+        (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    }
 
 //    func save(fruits: [Fruit]) {
 //        let items = fruits.map { try! JSONEncoder().encode($0) }
