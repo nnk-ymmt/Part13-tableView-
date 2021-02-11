@@ -9,15 +9,16 @@
 /* Begin PBXBuildFile section */
 		5F037C5725A8784D00C5F667 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F037C5625A8784D00C5F667 /* AppDelegate.swift */; };
 		5F037C5925A8784D00C5F667 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F037C5825A8784D00C5F667 /* SceneDelegate.swift */; };
-		5F037C5B25A8784D00C5F667 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F037C5A25A8784D00C5F667 /* ViewController.swift */; };
 		5F037C5E25A8784D00C5F667 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F037C5C25A8784D00C5F667 /* Main.storyboard */; };
 		5F037C6025A8785100C5F667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F037C5F25A8785100C5F667 /* Assets.xcassets */; };
 		5F037C6325A8785100C5F667 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F037C6125A8785100C5F667 /* LaunchScreen.storyboard */; };
 		5F037C6E25A8785200C5F667 /* Part13_tableView_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F037C6D25A8785200C5F667 /* Part13_tableView_Tests.swift */; };
 		5F037C7925A8785200C5F667 /* Part13_tableView_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F037C7825A8785200C5F667 /* Part13_tableView_UITests.swift */; };
-		5F037C8B25A9EE9100C5F667 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F037C8925A9EE9100C5F667 /* TableViewCell.swift */; };
 		5F037C8C25A9EE9100C5F667 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F037C8A25A9EE9100C5F667 /* TableViewCell.xib */; };
-		5FDFD9FA25ADDC64002B9623 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDFD9F925ADDC64002B9623 /* InputViewController.swift */; };
+		5F6FA31825D035EA00B1F70A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F037C5A25A8784D00C5F667 /* ViewController.swift */; };
+		5F6FA31C25D035EF00B1F70A /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDFD9F925ADDC64002B9623 /* InputViewController.swift */; };
+		5F6FA32025D035F400B1F70A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F037C8925A9EE9100C5F667 /* TableViewCell.swift */; };
+		5F6FA33325D0387200B1F70A /* Part13-tableView-.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F6FA33025D0387200B1F70A /* Part13-tableView-.xcdatamodeld */; };
 		5FDFD9FF25ADDC82002B9623 /* Input.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FDFD9FE25ADDC82002B9623 /* Input.storyboard */; };
 		E5DFCC3725ADE9CD00D916B4 /* Fruit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DFCC3625ADE9CD00D916B4 /* Fruit.swift */; };
 /* End PBXBuildFile section */
@@ -47,7 +48,6 @@
 		5F037C5D25A8784D00C5F667 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5F037C5F25A8785100C5F667 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F037C6225A8785100C5F667 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		5F037C6425A8785100C5F667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F037C6925A8785200C5F667 /* Part13-tableView-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Part13-tableView-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F037C6D25A8785200C5F667 /* Part13_tableView_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part13_tableView_Tests.swift; sourceTree = "<group>"; };
 		5F037C6F25A8785200C5F667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +56,11 @@
 		5F037C7A25A8785200C5F667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F037C8925A9EE9100C5F667 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		5F037C8A25A9EE9100C5F667 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		5F6FA2F725CEEBD700B1F70A /* Fruit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fruit+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5F6FA2F825CEEBD700B1F70A /* Fruit+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fruit+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5F6FA33125D0387200B1F70A /* Part13-tableView-.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Part13-tableView-.xcdatamodel"; sourceTree = "<group>"; };
+		5F6FA33225D0387200B1F70A /* Part13tableView.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Part13tableView.xcdatamodel; sourceTree = "<group>"; };
+		5FBDBCA925D18AA600BB7068 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		5FDFD9F925ADDC64002B9623 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		5FDFD9FE25ADDC82002B9623 /* Input.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Input.storyboard; sourceTree = "<group>"; };
 		E5DFCC3625ADE9CD00D916B4 /* Fruit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fruit.swift; sourceTree = "<group>"; };
@@ -89,6 +94,8 @@
 		5F037C4A25A8784D00C5F667 = {
 			isa = PBXGroup;
 			children = (
+				5F6FA2F725CEEBD700B1F70A /* Fruit+CoreDataClass.swift */,
+				5F6FA2F825CEEBD700B1F70A /* Fruit+CoreDataProperties.swift */,
 				5F037C5525A8784D00C5F667 /* Part13-tableView- */,
 				5F037C6C25A8785200C5F667 /* Part13-tableView-Tests */,
 				5F037C7725A8785200C5F667 /* Part13-tableView-UITests */,
@@ -118,9 +125,10 @@
 				5F037C5C25A8784D00C5F667 /* Main.storyboard */,
 				5F037C5F25A8785100C5F667 /* Assets.xcassets */,
 				5F037C6125A8785100C5F667 /* LaunchScreen.storyboard */,
-				5F037C6425A8785100C5F667 /* Info.plist */,
 				5F037C8925A9EE9100C5F667 /* TableViewCell.swift */,
 				5F037C8A25A9EE9100C5F667 /* TableViewCell.xib */,
+				5FBDBCA925D18AA600BB7068 /* Info.plist */,
+				5F6FA33025D0387200B1F70A /* Part13-tableView-.xcdatamodeld */,
 			);
 			path = "Part13-tableView-";
 			sourceTree = "<group>";
@@ -275,10 +283,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F6FA33325D0387200B1F70A /* Part13-tableView-.xcdatamodeld in Sources */,
+				5F6FA32025D035F400B1F70A /* TableViewCell.swift in Sources */,
+				5F6FA31C25D035EF00B1F70A /* InputViewController.swift in Sources */,
+				5F6FA31825D035EA00B1F70A /* ViewController.swift in Sources */,
 				E5DFCC3725ADE9CD00D916B4 /* Fruit.swift in Sources */,
-				5F037C5B25A8784D00C5F667 /* ViewController.swift in Sources */,
-				5FDFD9FA25ADDC64002B9623 /* InputViewController.swift in Sources */,
-				5F037C8B25A9EE9100C5F667 /* TableViewCell.swift in Sources */,
 				5F037C5725A8784D00C5F667 /* AppDelegate.swift in Sources */,
 				5F037C5925A8784D00C5F667 /* SceneDelegate.swift in Sources */,
 			);
@@ -458,12 +467,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65Z4MKYS28;
-				INFOPLIST_FILE = "Part13-tableView-/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Nonoka.Part13-tableView-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nonoka.Part13tableView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -477,12 +486,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65Z4MKYS28;
-				INFOPLIST_FILE = "Part13-tableView-/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Nonoka.Part13-tableView-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nonoka.Part13tableView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -613,6 +622,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5F6FA33025D0387200B1F70A /* Part13-tableView-.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5F6FA33125D0387200B1F70A /* Part13-tableView-.xcdatamodel */,
+				5F6FA33225D0387200B1F70A /* Part13tableView.xcdatamodel */,
+			);
+			currentVersion = 5F6FA33125D0387200B1F70A /* Part13-tableView-.xcdatamodel */;
+			path = "Part13-tableView-.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5F037C4B25A8784D00C5F667 /* Project object */;
 }
