@@ -166,7 +166,8 @@ class FruitsUseCase {
 
     func remove(index: Int) {
         fruits.remove(at: index)
-        repository.save(fruits: fruits)
+//        repository.save(fruits: fruits)
+        repository.delete(fruit: fruits[index])
     }
 }
 
@@ -179,21 +180,29 @@ class FruitsRepository {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
+    func delete(fruit: Fruit) {
+        guard let context = FruitsRepository.managedObjectContext else {
+            print("エラー")
+            return
+        }
+        context.delete(fruit)
+        save()
+    }
+
     func load() -> [Fruit]? {
 //        guard let items = UserDefaults.standard.object(forKey: key) as? [Data] else { return nil }
 //        return items.map { try! JSONDecoder().decode(Fruit.self, from: $0) }
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: key)
+        guard let context = FruitsRepository.managedObjectContext else {
+            print("エラー")
+            return nil
+        }
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: FruitsRepository.key)
         do {
-            guard let context = managedObjectContext else { return nil }
             return try context.fetch(fetchRequest) as? [Fruit]
         } catch {
             print("エラー")
             return nil
         }
-    }
-
-    var managedObjectContext: NSManagedObjectContext? {
-        (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     }
 }
 
