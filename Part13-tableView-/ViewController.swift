@@ -186,6 +186,11 @@ class FruitsRepository {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 
+        guard let context = FruitsRepository.managedObjectContext else {
+            print("エラー")
+            return
+        }
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: FruitsRepository.key)
     func delete(fruit: Fruit) {
         guard let context = FruitsRepository.managedObjectContext else {
             print("エラー")
