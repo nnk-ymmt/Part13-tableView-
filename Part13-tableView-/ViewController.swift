@@ -165,9 +165,9 @@ class FruitsUseCase {
     }
 
     func remove(index: Int) {
-        fruits.remove(at: index)
 //        repository.save(fruits: fruits)
         repository.delete(fruit: fruits[index])
+        fruits.remove(at: index)
     }
 }
 
